@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url); // get the resolved path to t
 const __dirname = path.dirname(__filename); // get the name of the directory
 const app = express();
 
-app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+// app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
 app.use(cors());
 
@@ -57,8 +57,8 @@ app.get("/api/user/:id", (req, res) => {
 });
 
 app.use("*", (req, res) => {
-	// return res.status(404).json({ status: false, error: "What are you trying to do?" });
-	return res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
+	return res.status(404).json({ status: false, error: "What are you trying to do?" });
+	// res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
 });
 
 app.listen(PORT, () => {

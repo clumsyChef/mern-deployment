@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { bePath } from "../helper";
+import { Link } from "react-router-dom";
 
 const AllUsers = () => {
 	const [users, setUsers] = useState(null);
@@ -23,7 +24,7 @@ const AllUsers = () => {
 				return (
 					<li key={user.id}>
 						<h2>
-							<a href={`/user/${user.id}`}>{user.sName}</a>
+							<Link to={`/user/${user.id}`}>{user.sName}</Link>
 						</h2>
 					</li>
 				);
